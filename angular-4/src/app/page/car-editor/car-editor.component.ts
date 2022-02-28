@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { Car } from 'src/app/model/car';
 import { CarService } from 'src/app/service/car.service';
@@ -14,9 +14,17 @@ export class CarEditorComponent implements OnInit {
     switchMap((params) => this.carService.get(params['id']))
   );
 
-  constructor(private ar: ActivatedRoute, private carService: CarService) {}
+  constructor(
+    private ar: ActivatedRoute,
+    private carService: CarService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
-  onUpdate(car: Car) {}
+  onUpdate(car: Car): void {
+    this.carService
+      .update(car)
+      .subscribe((car) => this.router.navigate(['/', 'car']));
+  }
 }
