@@ -87,7 +87,7 @@
         type="number"
         class="form-control"
         required
-        pattern="[1-9][0-9]?$|^50$"
+        pattern="^(5[0]|[1-4][0-9]|[1-9])$"
       >
       <div
         [hidden]="carForm.controls['stock']?.valid"
