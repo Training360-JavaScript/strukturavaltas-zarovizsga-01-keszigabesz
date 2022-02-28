@@ -39,6 +39,12 @@
         required
         pattern="^[A-Z]+[A-Za-z]{2,20}.*$"
       >
+      <div
+        [hidden]="carForm.controls['make']?.valid"
+        class="error-message"
+      >
+        Data not valid.
+      </div>
     </div>
     <div class="form-group">
       <label for="">Year</label>
@@ -49,6 +55,12 @@
         class="form-control"
         required
       >
+      <div
+        [hidden]="carForm.controls['year']?.valid"
+        class="error-message"
+      >
+        Data not valid.
+      </div>
     </div>
     <div class="form-group">
       <label for="">Price</label>
@@ -58,7 +70,14 @@
         type="number"
         class="form-control"
         required
+        pattern="^[0-9]{3,5}$"
       >
+      <div
+        [hidden]="carForm.controls['price']?.valid"
+        class="error-message"
+      >
+        Data not valid.
+      </div>
     </div>
     <div class="form-group">
       <label for="">Stock</label>
@@ -69,6 +88,12 @@
         class="form-control"
         required
       >
+      <div
+        [hidden]="carForm.controls['stock']?.valid"
+        class="error-message"
+      >
+        Data not valid.
+      </div>
     </div>
     <div class="form-group">
       <label for="">Active</label>
@@ -79,6 +104,12 @@
         class="form-control"
         required
       >
+      <div
+        [hidden]="carForm.controls['active']?.valid"
+        class="error-message"
+      >
+        Data not valid.
+      </div>
     </div>
     <button
       [disabled]="carForm.invalid"
