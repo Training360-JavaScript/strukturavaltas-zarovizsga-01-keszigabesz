@@ -61,11 +61,13 @@ const animals = [{
 }];
 
 const animalFilter = (list = animals, pop, zoo) => {
-  list
-    .filter(animal => animal.population > pop)
+  let commonNames = [];
+  list.filter(animal => animal.population > pop)
     .filter(animal => animal.zoo <= zoo)
-    .sort();
-  return list;
+    .forEach(animal => {
+      commonNames.push(animal.common_name)
+    });
+  return commonNames.sort();
 };
 
 if (typeof module !== 'undefined') {
