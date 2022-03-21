@@ -68,6 +68,11 @@ const animalFilter = (list = animals, pop, zoo) => {
       commonNames.push(animal.common_name)
     });
   return commonNames.sort();
+
+  /* return list
+        .filter(animal => animal.population > pop && animal.zoo <= zoo )
+        .map(filteredAnimal => filteredAnimal.common_name )
+        .sort(); */
 };
 
 if (typeof module !== 'undefined') {
